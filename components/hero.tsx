@@ -68,17 +68,17 @@ export default function Hero() {
 							<motion.span
 								variants={heroElementVariants}
 								className='block whitespace-nowrap tiny:whitespace-normal'>
-								Web developer
+								Front-end developer
 							</motion.span>
 						</h1>
 					</div>
 
 					<div className='lg:max-w-auto mt-4 max-w-[620px] font-inter text-[16px] text-secondary-500'>
 						<motion.p variants={heroElementVariants}>
-							Currently working with Next.js and learning backend development
-							and databases. I can create any website to suit your personal
-							taste. Please click below to learn more about me and check out my
-							projects.
+							Front-end developer with ~3 years of experience in React, Next.js,
+							and TypeScript. Currently building analytics products at Trackier
+							(AppTrove). Click below to learn more about me and check out my
+							work.
 						</motion.p>
 					</div>
 

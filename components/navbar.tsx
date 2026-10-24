@@ -18,6 +18,10 @@ const navbarBarLinks = [
     href: "about",
   },
   {
+    name: "Experience",
+    href: "experience",
+  },
+  {
     name: "Dexterity",
     href: "dexterity",
   },

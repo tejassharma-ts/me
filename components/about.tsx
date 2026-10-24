@@ -22,16 +22,18 @@ export default function About() {
 						<Panaroma text='myself' />
 						<Reveal direction='down'>
 							<p>
-								Getting straight to the point, my skills include ReactJs,
-								NodeJs, C++, C, and Javascript. I have a solid understanding of
-								the core of the world of web development, which includes HTML,
-								CSS, and Javascript.
+								Getting straight to the point, I&apos;m a front-end developer
+								working with React, Next.js, and TypeScript. At Trackier I
+								shipped a client-approved admin access system that helped close
+								deals with ICICI Bank and SBI, built a cohort retention report,
+								and migrated a production codebase to TypeScript.
 							</p>
 						</Reveal>
 						<Reveal direction='down'>
 							<p className='mt-2'>
-								I have spent a good amount of time learning how operating
-								systems work, which sparked an interest in learning Linux.
+								Before that, at Kaliper, I built an HRMS platform 0-to-1 as the
+								sole front-end engineer, covering payroll, attendance, leave, and
+								onboarding, and took it to production in about six months.
 							</p>
 						</Reveal>
 						<Reveal direction='down'>
@@ -59,8 +61,8 @@ export default function About() {
 				</div>
 
 				<div className='mt-6 lg:mt-28 '>
-					<SectionLink href='dexterity'>
-						Next up <span className='text-primary-500'>dexterity</span>
+					<SectionLink href='experience'>
+						Next up <span className='text-primary-500'>experience</span>
 					</SectionLink>
 				</div>
 			</div>

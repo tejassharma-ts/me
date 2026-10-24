@@ -12,7 +12,41 @@ import Button from './button';
 import SkillCard from './skill-card';
 import useDeviceDetection from '@/hooks/useDeviceDetection';
 
-const tabTitles = ['Languages', 'Web Technologies', 'Frameworks'];
+const tabs = [
+	{
+		title: 'Languages',
+		icons: [
+			{ src: '/images/tech/languages/typescript.svg', alt: 'TypeScript' },
+			{ src: '/images/tech/languages/js.svg', alt: 'JavaScript' },
+			{ src: '/images/tech/languages/html5.svg', alt: 'HTML5' },
+			{ src: '/images/tech/languages/css3.svg', alt: 'CSS3' },
+			{ src: '/images/tech/languages/python.svg', alt: 'Python' },
+			{ src: '/images/tech/languages/c++.svg', alt: 'C++' },
+		],
+	},
+	{
+		title: 'Frameworks',
+		icons: [
+			{ src: '/images/tech/web-dev/reactjs.svg', alt: 'React' },
+			{ src: '/images/tech/web-dev/nextjs.svg', alt: 'Next.js' },
+			{ src: '/images/tech/web-dev/redux.svg', alt: 'Redux' },
+			{ src: '/images/tech/web-dev/tanstack-query.svg', alt: 'TanStack Query' },
+			{ src: '/images/tech/web-dev/framer-motion.svg', alt: 'Framer Motion' },
+			{ src: '/images/tech/testing/jest.svg', alt: 'Jest' },
+		],
+	},
+	{
+		title: 'Styling',
+		icons: [
+			{ src: '/images/tech/web-dev/tailwindcss.svg', alt: 'Tailwind CSS' },
+			{ src: '/images/tech/styling/sass.svg', alt: 'Sass' },
+			{ src: '/images/tech/styling/css-modules.svg', alt: 'CSS Modules' },
+			{ src: '/images/tech/styling/radix-ui.svg', alt: 'Radix UI' },
+			{ src: '/images/tech/styling/mui.svg', alt: 'MUI' },
+			{ src: '/images/tech/styling/bootstrap.svg', alt: 'Bootstrap' },
+		],
+	},
+];
 
 export default function Dexterity() {
 	const { isDesktopOrLaptop: isDesktop} = useDeviceDetection();
@@ -51,7 +85,7 @@ export default function Dexterity() {
 					<div>
 						<div className='text-sm'>
 							<div className='flex justify-between space-x-8 overflow-hidden whitespace-nowrap px-4 pb-4 pt-2 lg:pt-12'>
-								{tabTitles.map((title, idx) => {
+								{tabs.map(({ title }, idx) => {
 									return (
 										<TabTitle
 											key={idx}
@@ -65,180 +99,29 @@ export default function Dexterity() {
 							</div>
 							<div className='relative mt-8'>
 								<AnimatePresence mode='wait'>
-									{currentTab === 1 && (
-										<motion.div
-											key='languages'
-											initial={{ y: 10, opacity: 0 }}
-											animate={{ y: 0, opacity: 1 }}
-											exit={{ y: -5, opacity: 0 }}
-											transition={{
-												duration: 0.5,
-												ease: [0.22, 1, 0.36, 1],
-											}}
-											className='absolute flex w-full justify-center'>
-											<Reveal direction='down'>
-												<div className='grid grid-cols-3 gap-x-20 gap-y-8'>
-													<Image
-														src='/images/tech/languages/js.svg'
-														alt='js'
-														width={65}
-														height={65}
-														className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-													/>
-													<Image
-														src='/images/tech/languages/c.svg'
-														alt='cpp'
-														width={65}
-														height={65}
-														className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-													/>
-													<Image
-														src='/images/tech/languages/typescript.svg'
-														alt='js'
-														width={65}
-														height={65}
-														className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-													/>
-													<Image
-														src='/images/tech/languages/python.svg'
-														alt='js'
-														width={65}
-														height={65}
-														className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-													/>
-													<Image
-														src='/images/tech/languages/html5.svg'
-														alt='js'
-														width={65}
-														height={65}
-														className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-													/>
-													<Image
-														src='/images/tech/languages/css3.svg'
-														alt='js'
-														width={65}
-														height={65}
-														className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-													/>
-												</div>
-											</Reveal>
-										</motion.div>
-									)}
-									{currentTab === 2 && (
-										<motion.div
-											key='devs'
-											initial={{ y: 10, opacity: 0 }}
-											animate={{ y: 0, opacity: 1 }}
-											exit={{ y: -5, opacity: 0 }}
-											transition={{
-												duration: 0.5,
-												ease: [0.22, 1, 0.36, 1],
-											}}
-											className='absolute flex w-full justify-center'>
-											<div className='grid grid-cols-3 gap-x-20 gap-y-8'>
+									<motion.div
+										key={currentTab}
+										initial={{ y: 10, opacity: 0 }}
+										animate={{ y: 0, opacity: 1 }}
+										exit={{ y: -5, opacity: 0 }}
+										transition={{
+											duration: 0.5,
+											ease: [0.22, 1, 0.36, 1],
+										}}
+										className='absolute flex w-full justify-center'>
+										<div className='grid grid-cols-3 gap-x-20 gap-y-8'>
+											{tabs[currentTab - 1].icons.map((icon) => (
 												<Image
-													src='/images/tech/web-dev/reactjs.svg'
-													alt='js'
+													key={icon.alt}
+													src={icon.src}
+													alt={icon.alt}
 													width={65}
 													height={65}
 													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
 												/>
-												<Image
-													src='/images/tech/web-dev/nextjs.svg'
-													alt='cpp'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/web-dev/tailwindcss.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/python.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/html5.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/css3.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-											</div>
-										</motion.div>
-									)}
-
-									{currentTab === 3 && (
-										<motion.div
-											key='frameworks'
-											initial={{ y: 10, opacity: 0 }}
-											animate={{ y: 0, opacity: 1 }}
-											exit={{ y: -5, opacity: 0 }}
-											transition={{
-												duration: 0.5,
-												ease: [0.22, 1, 0.36, 1],
-											}}
-											className='absolute flex w-full justify-center'>
-											<div className='grid grid-cols-3 gap-x-20 gap-y-8'>
-												<Image
-													src='/images/tech/languages/js.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/c.svg'
-													alt='cpp'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/typescript.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/python.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/html5.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-												<Image
-													src='/images/tech/languages/css3.svg'
-													alt='js'
-													width={65}
-													height={65}
-													className='rounded-lg border-2 border-secondary-100 p-2 shadow-lg'
-												/>
-											</div>
-										</motion.div>
-									)}
+											))}
+										</div>
+									</motion.div>
 								</AnimatePresence>
 							</div>
 						</div>
@@ -264,7 +147,7 @@ export default function Dexterity() {
 						<SkillCard
 							imageSrc='/images/code.svg'
 							heading='Development'
-							desc='Building responsive and interactive web applications using NextJs, Tailwindcss.'
+							desc='Building fast, type-safe web applications with React, Next.js, and TypeScript.'
 							animateUpBy={isInView && isDesktop ? -100 : 0}
 						/>
 						<SkillCard

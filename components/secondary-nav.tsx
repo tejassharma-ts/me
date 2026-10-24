@@ -16,6 +16,10 @@ const navLinks = [
 		href: 'about',
 	},
 	{
+		name: 'experience',
+		href: 'experience',
+	},
+	{
 		name: 'dexterity',
 		href: 'dexterity',
 	},

@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Divider from "@/components/divider";
+import Experience from "@/components/experience";
 import Dexterity from "@/components/dexterity";
 import Projects from "@/components/projects";
 import Connection from "@/components/connection";
@@ -27,6 +28,7 @@ export default function Home() {
             <Hero />
             <Divider className="lg:mt-16" />
             <About />
+            <Experience />
             <Dexterity />
             <Projects />
             <Connection />
