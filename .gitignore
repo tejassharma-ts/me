@@ -35,3 +35,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local pnpm settings; pnpm 9 on Vercel rejects a workspace file without "packages"
+pnpm-workspace.yaml
